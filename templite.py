@@ -19,8 +19,8 @@ class CodeBuilder(object):
 		self.code.extend([" "*self.indent_level,line,'\n'])
 	def __str__(self):
 		"""
-		²»¿ÉÖ±½ÓÓÃ''.join(self.code),
-		ÒòÎªcodeÀïÓĞÆäËûCodeBuilder¶ÔÏó
+		ä¸å¯ç›´æ¥ç”¨''.join(self.code),
+		å› ä¸ºcodeé‡Œæœ‰å…¶ä»–CodeBuilderå¯¹è±¡
 		"""
 		return "".join(str(c) for c in self.code)
 	def get_globals(self):
@@ -34,8 +34,8 @@ class Templite(object):
 	
 	def __init__(self,text,*contexts):
 		"""
-		ÎªÁËÊ¹ÓÃ±àÒë³öÀ´µÄº¯Êı¾¡¿ÉÄÜ¿ì£¬
-		½«ÉÏÏÂÎÄÖĞµÄ±äÁ¿ÌáÈ¡µ½python±¾µØ±äÁ¿ÖĞ¡£
+		ä¸ºäº†ä½¿ç”¨ç¼–è¯‘å‡ºæ¥çš„å‡½æ•°å°½å¯èƒ½å¿«ï¼Œ
+		å°†ä¸Šä¸‹æ–‡ä¸­çš„å˜é‡æå–åˆ°pythonæœ¬åœ°å˜é‡ä¸­ã€‚
 		"""
 		self.context = {}
 		for context in contexts:
@@ -108,8 +108,8 @@ class Templite(object):
 			else:
 				if token:
 					"""
-					str()·µ»ØµÄ×Ö·û´®¿É¶ÁĞÔºÃ£¬repr()¶ÔpythonÓÑºÃ£¬
-					µÃµ½µÄ×Ö·û´®Í¨³£¿ÉÒÔÓÃeval()ÖØĞÂµÃµ½¸Ã¶ÔÏó£¨²¢·ÇËùÓĞÇé¿ö¶¼¿ÉÒÔ£©
+					str()è¿”å›çš„å­—ç¬¦ä¸²å¯è¯»æ€§å¥½ï¼Œrepr()å¯¹pythonå‹å¥½ï¼Œ
+					å¾—åˆ°çš„å­—ç¬¦ä¸²é€šå¸¸å¯ä»¥ç”¨eval()é‡æ–°å¾—åˆ°è¯¥å¯¹è±¡ï¼ˆå¹¶éæ‰€æœ‰æƒ…å†µéƒ½å¯ä»¥ï¼‰
 					"""
 					buffered.append(repr(token))
 					
@@ -134,13 +134,13 @@ class Templite(object):
 		vars_set.add(name)
 	
 	def _do_dots(self,value,*dots):
-		#getattr(x,y)µÈÓÚx.y
+		#getattr(x,y)ç­‰äºx.y
 		for dot in dots:
 			try:
 				value = getattr(value, dot)
 			except AttributeError:
 				value = value[dot]
-			#¼ì²évalueÊÇ·ñ¿Éµ÷ÓÃ
+			#æ£€æŸ¥valueæ˜¯å¦å¯è°ƒç”¨
 			if callable(value):     
 				value = value()
 		return value
