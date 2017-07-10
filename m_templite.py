@@ -1,14 +1,14 @@
 #coding=utf-8
 
 """
-Î´ÊµÏÖ:
-	1¡¢Ä£°å¼Ì³ĞºÍ°üº¬
-    2¡¢×Ô¶¨Òå±êÇ©
-    3¡¢×Ô¶¯¹ıÂË·Ç·¨×Ö·û
-    4¡¢²ÎÊı¹ıÂË
-    5¡¢¸´ÔÓµÄÂß¼­£¬Èçelif 
-    6¡¢¶à¸ö±äÁ¿Ñ­»·
-    7¡¢¿Õ°×·û¿ØÖÆ
+æœªå®ç°:
+	1ã€æ¨¡æ¿ç»§æ‰¿å’ŒåŒ…å«
+    2ã€è‡ªå®šä¹‰æ ‡ç­¾
+    3ã€è‡ªåŠ¨è¿‡æ»¤éæ³•å­—ç¬¦
+    4ã€å‚æ•°è¿‡æ»¤
+    5ã€å¤æ‚çš„é€»è¾‘ï¼Œå¦‚elif 
+    6ã€å¤šä¸ªå˜é‡å¾ªç¯
+    7ã€ç©ºç™½ç¬¦æ§åˆ¶
 """
 
 import re
@@ -30,8 +30,8 @@ class CodeBuilder(object):
 		return section
 	def __str__(self):
 		"""
-		²»¿ÉÖ±½ÓÓÃ''.join(self.code),
-		ÒòÎªcodeÀïÓĞÆäËûCodeBuilder¶ÔÏó
+		ä¸å¯ç›´æ¥ç”¨''.join(self.code),
+		å› ä¸ºcodeé‡Œæœ‰å…¶ä»–CodeBuilderå¯¹è±¡
 		"""
 		return ''.join(str(c) for c in self.code)
 	def get_globals(self):
@@ -44,9 +44,9 @@ class CodeBuilder(object):
 class Templite(object):
 	def __init__(self,text,*contexts):
 		"""
-		ÎªÁËÊ¹ÓÃ±àÒë³öÀ´µÄº¯Êı¾¡¿ÉÄÜ¿ì£¬
-		½«ÉÏÏÂÎÄÖĞµÄ±äÁ¿ÌáÈ¡µ½python±¾µØ±äÁ¿ÖĞ¡£
-		Í¬Ê±ÔÚ¼ÓÉÏÇ°×º'c_'·ÀÖ¹ÃüÃû³åÍ»
+		ä¸ºäº†ä½¿ç”¨ç¼–è¯‘å‡ºæ¥çš„å‡½æ•°å°½å¯èƒ½å¿«ï¼Œ
+		å°†ä¸Šä¸‹æ–‡ä¸­çš„å˜é‡æå–åˆ°pythonæœ¬åœ°å˜é‡ä¸­ã€‚
+		åŒæ—¶åœ¨åŠ ä¸Šå‰ç¼€'c_'é˜²æ­¢å‘½åå†²çª
 		"""
 		self.context = {}
 		for context in contexts:
@@ -117,8 +117,8 @@ class Templite(object):
 			else:
 				if token:
 					"""
-					str()·µ»ØµÄ×Ö·û´®¿É¶ÁĞÔºÃ£¬repr()¶ÔpythonÓÑºÃ£¬
-					µÃµ½µÄ×Ö·û´®Í¨³£¿ÉÒÔÓÃeval()ÖØĞÂµÃµ½¸Ã¶ÔÏó£¨²¢·ÇËùÓĞÇé¿ö¶¼¿ÉÒÔ£©
+					str()è¿”å›çš„å­—ç¬¦ä¸²å¯è¯»æ€§å¥½ï¼Œrepr()å¯¹pythonå‹å¥½ï¼Œ
+					å¾—åˆ°çš„å­—ç¬¦ä¸²é€šå¸¸å¯ä»¥ç”¨eval()é‡æ–°å¾—åˆ°è¯¥å¯¹è±¡ï¼ˆå¹¶éæ‰€æœ‰æƒ…å†µéƒ½å¯ä»¥ï¼‰
 					"""
 					buffered.append(repr(token))
 		
@@ -154,7 +154,7 @@ class Templite(object):
 				value=getattr(value,dot)
 			except AttributeError:
 				value=value[dot]
-			#¼ì²évalueÊÇ·ñ¿ÉÒÔµ÷ÓÃ
+			#æ£€æŸ¥valueæ˜¯å¦å¯ä»¥è°ƒç”¨
 			if callable(value):
 				value=value()
 		return value
